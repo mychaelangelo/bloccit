@@ -45,6 +45,12 @@ end
 # for faker gem, seed data
 gem 'faker'
 
+# for 'devise' user authentication gem
+gem 'devise'
+
+# for Figaro gem, which provides solution for handling senstive data in env variables
+gem 'figaro'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

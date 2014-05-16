@@ -21,7 +21,10 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* 
+
+Setup
+> [to include notes on config/application.yml secure configuration of application]
 
 
 Please feel free to use a different markup language if you do not plan to run
@@ -31,4 +34,5 @@ Please feel free to use a different markup language if you do not plan to run
 
 Made with my mentor at [Bloc](http://bloc.io).
 
-Url is: http://mychaelangelo-bloccit.herokuapp.com/
+Url for deployed app is: http://mychaelangelo-bloccit.herokuapp.com/
+
