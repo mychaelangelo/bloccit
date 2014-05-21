@@ -8,4 +8,13 @@ module ApplicationHelper
     end
   end
 
+# Method takes a string as arg and returns it after rendering it with Markdown
+  def markdown(text)
+    renderer = Redcarpet::Render::HTML.new
+    extensions = {fenced_code_blocks: true, strikethrough: true}
+    redcarpet = Redcarpet::Markdown.new(renderer, extensions)
+    (redcarpet.render text).html_safe
+  end
+
+
 end
