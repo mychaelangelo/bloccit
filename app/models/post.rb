@@ -2,6 +2,7 @@ class Post < ActiveRecord::Base
   # tells Rails that a post object can have many comments related to it
   # also provides methods that enable us to retrieve comments for a post
   has_many :comments
+  mount_uploader :postimage, PostImageUploader
   belongs_to :user
   belongs_to :topic
 
@@ -10,6 +11,6 @@ class Post < ActiveRecord::Base
   validates :title, length: { minimum: 5 }, presence: true
   validates :body, length: { minimum: 20 }, presence: true
   validates :topic, presence: true
-  validates :user, presence: true
+  validates :user, presence: true 
 
 end
