@@ -7,6 +7,11 @@ Bloccit::Application.routes.draw do
     resources :posts, except: [:index]
   end
 
+  # Nesting the 'comments' resource of 'create' under /posts/id type url
+  resources :posts do
+    resources :comments, only: [:create, :new]
+  end
+
   resources :posts
 
   get 'about' => 'welcome#about'

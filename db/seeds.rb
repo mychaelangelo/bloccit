@@ -35,10 +35,12 @@ posts = Post.all
 # Create Comments
 150.times do
   Comment.create(
+    user: users.sample,
     post: posts.sample,
-    body: Faker::Lorem.paragraph
+    body: Faker::Lorem.sentence
   )
 end
+comments = Comment.all
 
 # Create an admin user
 admin = User.new(
