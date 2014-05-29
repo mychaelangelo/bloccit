@@ -1,0 +1,10 @@
+<h1>New Comment</h1>
+
+<!-- Comment Form -->
+<%= render partial: "form", locals: { post: @post, comment: @comment } %>
+<!-- End of Comment Form -->
+
+
+<!-- Comments Area -->
+<%= render partial: "comments", locals: { comments: @comments } %>
+<!-- End ofComments Area -->

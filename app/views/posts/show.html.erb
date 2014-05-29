@@ -1,7 +1,7 @@
 <h1><%= markdown @post.title %></h1>
 
 <div class = "row">
-  <div class= "col-md-4">
+  <div class= "col-md-8">
     <small>
       <%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
       submitted <%= time_ago_in_words(@post.created_at) %> ago by
@@ -9,7 +9,33 @@
     </small>
 
     <p><%= markdown @post.body %></p>
+    <br>
+
+
+    <!-- Edit Post Button -->
+    <% if policy(@post).edit? %>
+      <%= link_to "Edit Post", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
+    <% end %> 
+    <hr> 
+    <!-- End of Post Edit Button -->
+
+    <!-- New Comment Area -->
+    <% if policy(Comment.new).create? %>
+      <%= render partial: "comments/form", locals: { post: @post, comment: @comment } %>
+    <% end %>
+    <br>
+    <!-- End of New Comment -->
+
+    
+
+    <!-- Comments Area -->
+    <%= render partial: "comments/comments", locals: { post: @post, comments: @post.comments } %>
+    <!-- End ofComments Area -->
+    <%= will_paginate @comments %>
+
+
   </div>
+
 
   <!-- Post Image Here -->
   <div class= "col-md-4">
@@ -17,10 +43,6 @@
   <!-- End of Image Here -->
   </div>
 
-  <div class="col-md-4">
-    <% if policy(@post).edit? %>
-      <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
-    <% end %>
-  </div>
+
 </div>
 
