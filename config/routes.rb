@@ -4,13 +4,11 @@ Bloccit::Application.routes.draw do
   resources :users, only: [:update]
 
   resources :topics do
-    resources :posts, except: [:index]
+    resources :posts, except: [:index] do
+      resources :comments, only: [:create, :destroy]
+    end
   end
 
-  # Nesting the 'comments' resource of 'create' under /posts/id type url
-  resources :posts do
-    resources :comments, only: [:create, :new]
-  end
 
   resources :posts
 

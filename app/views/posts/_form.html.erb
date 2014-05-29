@@ -1,11 +1,11 @@
 
 <%= form_for [topic, post] do |f| %>
   
-  <% if post.errors.any? %>
+  <% if post.comment.errors.any? %>
     <div class="alert alert-danger">
       <h4>There are <%= pluralize(post.errors.count, "error") %>.</h4>
       <ul>
-        <% post.errors.full_messages.each do |msg| %>
+        <% post.comment.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>

@@ -19,6 +19,12 @@
         <%= comment.user.name %><br />
         </footer>
 
+        <small>
+          <% if policy(comment).destroy? %>
+            <%= link_to "Delete", [@topic, @post, comment], method: :delete %>
+          <% end %>
+        </small>
+
       </blockquote>
     </div>
 

@@ -1,3 +1,4 @@
 class Topic < ActiveRecord::Base
-  has_many :posts
+  # adding the 'dependent: :destroy' means when topic is deleted, associated posts are deleted too
+  has_many :posts, dependent: :destroy
 end
