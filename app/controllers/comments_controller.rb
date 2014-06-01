@@ -23,6 +23,8 @@ class CommentsController < ApplicationController
       redirect_to [@topic, @post], notice: "Comment was saved successfully."
     else
       flash[:error] = "Error saving the comment. Please try again #{@comment.errors[:body]}"
+      
+      # consider using 'redirect_to :back' here
       redirect_to [@topic, @post]
 
     end
