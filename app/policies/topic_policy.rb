@@ -4,6 +4,10 @@ class TopicPolicy < ApplicationPolicy
     true 
   end
 
+  def show?
+    record.public? || user.present?
+  end
+
   # only admins can create topics
   def create?
     user.present? && user.role?(:admin)

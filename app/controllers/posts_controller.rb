@@ -1,10 +1,15 @@
 class PostsController < ApplicationController
 
   def show
+    # @post = Post.find(params[:id])
+    # @topic = @post.topic
+    # @comments = @post.comments.paginate(page: params[:page], per_page: 10)
+    # @comment = Comment.new  
+    @topic = Topic.find(params[:topic_id])
+    authorize @topic
     @post = Post.find(params[:id])
-    @topic = @post.topic
-    @comments = @post.comments.paginate(page: params[:page], per_page: 10)
-    @comment = Comment.new  
+    @comments = @post.comments
+    @comment = Comment.new
   end
 
   def new
