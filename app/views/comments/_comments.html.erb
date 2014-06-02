@@ -6,6 +6,12 @@
 
 
 <% comments.each do |comment| %>
+  
+  <!-- adding a unique id for anchor -->
+  <%= content_tag :div, class: 'media', id: "comment-#{comment.id}" do %>
+  <% end %>
+  <!-- end of anchor -->
+
   <div class="media">   
     <div class="media-body">
 

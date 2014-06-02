@@ -3,6 +3,7 @@ class Post < ActiveRecord::Base
   # also provides methods that enable us to retrieve comments for a post
   has_many :votes, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   after_create :create_vote
 

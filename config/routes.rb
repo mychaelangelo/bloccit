@@ -10,6 +10,9 @@ Bloccit::Application.routes.draw do
       # manual routes for vote links
       get '/up-vote' => 'votes#up_vote', as: :up_vote
       get '/down-vote' => 'votes#down_vote', as: :down_vote
+
+      # routes for the Favorite links
+      resources :favorites, only: [:create, :destroy]
     end
   end
 
