@@ -53,6 +53,13 @@
         <%= f.hidden_field :avatar_cache %>
       </div>
 
+      <!-- opt for email notifications -->
+      <div class="form-group">
+        <%= f.label :email_favorites %>
+        <%= f.check_box :email_favorites %>
+        <p>Be notified for new comments on your favorites</p>
+      </div>
+      <!-- end of opt for email notifications -->
       
       <div class="form-group">
         <%= f.submit "Update", class: 'btn btn-success' %>

@@ -16,7 +16,7 @@
 
     <p><%= markdown @post.body %></p>
     <br>
-
+ 
 
     <!-- Edit Post Button -->
     <% if policy(@post).edit? %>
@@ -55,7 +55,8 @@
     <!-- Comments Area -->
     <%= render partial: "comments/comments", locals: { post: @post, comments: @post.comments } %>
     <!-- End ofComments Area -->
-    <%= will_paginate @comments %>
+
+    
 
 
   </div>

@@ -5,7 +5,7 @@
     <div class="alert alert-danger">
       <h4>There are <%= pluralize(post.errors.count, "error") %>.</h4>
       <ul>
-        <% post.comment.errors.full_messages.each do |msg| %>
+        <% post.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>

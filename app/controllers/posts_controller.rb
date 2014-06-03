@@ -8,7 +8,7 @@ class PostsController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     authorize @topic
     @post = Post.find(params[:id])
-    @comments = @post.comments
+    @comments = @post.comments.paginate(per_page: 10, page: params[:page])
     @comment = Comment.new
   end
 

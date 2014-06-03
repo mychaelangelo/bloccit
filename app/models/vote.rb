@@ -7,11 +7,21 @@ class Vote < ActiveRecord::Base
   # to rank posts after each time a vost is cast
   after_save :update_post
 
+  def up_vote?
+    value == 1
+  end
+
+  def down_vote?
+    value == -1
+  end
+  
   private
 
   def update_post
     self.post.update_rank
   end
+
+
 
   private
 end
