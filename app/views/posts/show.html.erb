@@ -54,6 +54,8 @@
 
     <!-- Comments Area -->
     <%= render partial: "comments/comments", locals: { post: @post, comments: @post.comments } %>
+    <%= will_paginate @comments %>
+
     <!-- End ofComments Area -->
 
     

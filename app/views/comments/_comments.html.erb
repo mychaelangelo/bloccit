@@ -27,7 +27,7 @@
 
         <small>
           <% if policy(comment).destroy? %>
-            <%= link_to "Delete", [@topic, @post, comment], method: :delete %>
+            <%= link_to "Delete", comment_url_helper(comment), method: :delete %>
           <% end %>
         </small>
 
@@ -35,7 +35,7 @@
     </div>
 
   </div>
-  <%= will_paginate @comments %>
+  
 
 <% end %>
 

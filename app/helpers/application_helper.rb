@@ -16,5 +16,12 @@ module ApplicationHelper
     (redcarpet.render text).html_safe
   end
 
+  # returns what is needed for a comment partial, i.e. an array of 'topic', 'post' and 'comment' objects
+  def comment_url_helper(comment)
+    post = comment.post
+    topic = post.topic
+    [topic, post, comment]
+  end
+
 
 end
