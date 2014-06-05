@@ -13,6 +13,11 @@ group :development do
   gem 'sqlite3'
 end
 
+group :development, :test do
+  gem 'rspec-rails', '~> 2.14.0'
+  gem 'factory_girl_rails', '~> 4.0'
+end
+
 # adding bootstrap-sass gem, for CSS framework
 gem 'bootstrap-sass', '~> 3.1.1'
 
