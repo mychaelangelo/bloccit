@@ -47,18 +47,14 @@
     <% if policy(Comment.new).create? %>
       <%= render partial: "comments/form", locals: { topic: @topic, post: @post, comment: @comment } %>
     <% end %>
-    <br>
     <!-- End of New Form -->
 
     
-
-    <!-- Comments Area -->
-    <%= render partial: "comments/comments", locals: { post: @post, comments: @post.comments } %>
-    <%= will_paginate @comments %>
+    <h2 class='js-comments-count'><%= pluralize(@comments.count, 'Comment') %></h2>
+    
+    <%= render partial: "comments/comment", collection: @comments, locals: { topic: @topic, post: @post } %>
 
     <!-- End ofComments Area -->
-
-    
 
 
   </div>

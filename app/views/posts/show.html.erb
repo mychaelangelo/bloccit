@@ -53,7 +53,7 @@
     
 
     <!-- Comments Area -->
-    <%= render partial: "comments/comments", locals: { post: @post, comments: @post.comments } %>
+    <%= render partial: "comments/comment", collection: @comments, locals: { topic: @topic, post: @post } %>
     <%= will_paginate @comments %>
 
     <!-- End ofComments Area -->
