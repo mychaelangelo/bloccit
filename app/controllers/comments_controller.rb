@@ -16,20 +16,21 @@ class CommentsController < ApplicationController
   # Unlike 'new method' this does not have a corresponding view.
   def create
     @post = Post.find(params[:post_id]) 
-    @comment = current_user.comments.build(post_params)
+    @comment = current_user.comments.build(comment_params)
     @comment.post = @post
     @topic = @post.topic
+    @new_comment = Comment.new 
 
 
     authorize @comment 
     if @comment.save
-      redirect_to [@topic, @post], notice: "Comment was saved successfully."
+      flash[:notice] = "Comment was saved successfully."
     else
-      flash[:error] = "Error saving the comment. Please try again #{@comment.errors[:body]}"
-      
-      # consider using 'redirect_to :back' here
-      redirect_to [@topic, @post]
+      flash[:error] = "Error saving the comment. Please try again."
+    end
 
+    respond_with(@comment) do |f|
+      f.html { redirect_to [@topic, @post] }
     end
   end
 
@@ -51,8 +52,10 @@ class CommentsController < ApplicationController
     end
   end
 
-  def post_params
-    params.require(:comment).permit(:body)
+  private
+
+  def comment_params
+    params.require(:comment).permit(:body, :post_id)
   end
 
 

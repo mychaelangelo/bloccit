@@ -52,7 +52,9 @@
     
     <h2 class='js-comments-count'><%= pluralize(@comments.count, 'Comment') %></h2>
     
-    <%= render partial: "comments/comment", collection: @comments, locals: { topic: @topic, post: @post } %>
+    <div class='js-comments'>
+      <%= render partial: "comments/comment", collection: @comments, locals: { topic: @topic, post: @post } %>
+    </div>
 
     <!-- End ofComments Area -->
 
